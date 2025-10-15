@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url={{ url_for('jugar', nivel=nivel) if es_correcto else url_for('inicio') }}">
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+        .correcto { color: #228b22; font-size: 3em; }
+        .incorrecto { color: #b22222; font-size: 3em; }
+        p { font-size: 1.5em; }
+        .enlace { margin-top: 40px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    {% if es_correcto %}
+        <h1 class="correcto">{{ mensaje }}</h1>
+        <p>¡Preparándote para la siguiente pregunta de {{ nivel.capitalize() }}...</p>
+        <p>Serás redirigido automáticamente en 3 segundos.</p>
+    {% else %}
+        <h1 class="incorrecto">{{ mensaje }}</h1>
+        <p>¡Sigue practicando!</p>
+        <div class="enlace">
+             <a href="{{ url_for('inicio') }}">↩ Volver al Inicio para ver tu puntaje</a>
+        </div>
+    {% endif %}
+
+</body>
+</html>

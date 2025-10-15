@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nivel {{ nivel.capitalize() }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #fffacd; }
+        h1 { color: #8a2be2; }
+        .pregunta { font-size: 3em; margin: 40px; color: #483d8b; }
+        input[type=number], button { padding: 15px; font-size: 1.5em; margin: 10px; border-radius: 8px; border: 1px solid #ccc; }
+        button { background-color: #5f9ea0; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #4682b4; }
+        .regresar { margin-top: 30px; display: block; font-size: 1.2em; color: #20b2aa; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Nivel: {{ nivel.capitalize() }}</h1>
+    
+    <div class="pregunta">
+        {{ pregunta }} = ?
+    </div>
+    
+    <form action="{{ url_for('verificar') }}" method="POST">
+        <input type="number" name="respuesta" placeholder="Tu Respuesta" required>
+        <button type="submit">¡Enviar!</button>
+    </form>
+    
+    <a href="{{ url_for('inicio') }}" class="regresar">🏠 Volver al Inicio (y ver puntaje)</a>
+</body>
+</html>

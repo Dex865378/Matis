@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Matemáticas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f0f8ff; }
+        h1 { color: #ff6347; }
+        .puntaje { font-size: 1.5em; color: #4682b4; margin-bottom: 30px; border: 2px solid #4682b4; padding: 10px; display: inline-block; }
+        .boton-nivel { 
+            display: block; 
+            margin: 15px auto; 
+            padding: 20px; 
+            width: 80%; 
+            max-width: 300px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #3cb371; 
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .boton-nivel:hover { background-color: #2e8b57; }
+    </style>
+</head>
+<body>
+    <h1>🌟 ¡Bienvenido al Rincón de las Matemáticas! 🌟</h1>
+    
+    <div class="puntaje">
+        Tu Puntaje Actual: {{ puntaje }} puntos
+    </div>
+    
+    <h2>Elige tu Aventura de Sumas:</h2>
+    
+    <a href="{{ url_for('jugar', nivel='basico') }}" class="boton-nivel" style="background-color: #4CAF50;">BÁSICO (0-10)</a>
+    <a href="{{ url_for('jugar', nivel='intermedio') }}" class="boton-nivel" style="background-color: #FFC107;">INTERMEDIO (0-50)</a>
+    <a href="{{ url_for('jugar', nivel='dificil') }}" class="boton-nivel" style="background-color: #F44336;">DIFÍCIL (0-100)</a>
+    
+</body>
+</html>
